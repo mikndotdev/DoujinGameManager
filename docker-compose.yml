@@ -1,0 +1,28 @@
+services:
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+
+  api:
+    image: ghcr.io/maamokun/dgm-api:latest
+    restart: unless-stopped
+    environment:
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - redis
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+
+volumes:
+  redis-data:

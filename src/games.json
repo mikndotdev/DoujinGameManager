@@ -1,0 +1,8 @@
+[
+  {
+    "id": "example",
+    "name": "Example game",
+    "description": "You can add a description for your game here.",
+    "image": "/thumbs/example.png"
+  }
+]
