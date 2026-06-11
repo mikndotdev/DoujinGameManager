@@ -7,7 +7,7 @@ services:
       - redis-data:/data
 
   api:
-    image: ghcr.io/maamokun/dgm-api:latest
+    image: ghcr.io/mikndotdev/dgm-api:latest
     restart: unless-stopped
     environment:
       REDIS_URL: redis://redis:6379
