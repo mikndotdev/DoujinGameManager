@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "dev:api": "bun run --watch src/api/server.ts",
-    "build:api": "bun build --compile src/api/server.ts",
+    "build:api": "bun build --compile --minify-whitespace --minify-syntax --target bun src/api/server.ts",
     "format": "oxfmt"
   },
   "dependencies": {
